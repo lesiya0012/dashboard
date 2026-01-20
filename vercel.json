@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "Front/next.config.js", "use": "@vercel/next" },
+    { "src": "Back/api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "Back/api/$1.js" },
+    { "src": "/(.*)", "dest": "Front/$1" }
+  ],
+  "installCommand": "pnpm install"
+}
